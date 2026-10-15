@@ -11,11 +11,10 @@
 
     $statement->execute();
     
-    if($usuario = $statement->fetch(PDO::FETCH_ASSOC)){
-        echo $usuario['nome_completo'];
-        echo "\n" . $usuario['data_nascimento'];
+    if($usuario = $statement->fetchObject()){
+        // echo "Nome: " . $usuario->
     }
 
 
     // '->' é usado para contextos de objeto, enquanto '::' é usado para contextos de classe. 
-    // (use '::' para acessar métodos estáticos de uma classe, e '->' para acessar métodos de instâncias de objetos)
+    // (use '::' para acessar métodos e atributos estáticos de uma classe, e '->' para acessar métodos e atributos de instâncias de objetos)
