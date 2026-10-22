@@ -21,8 +21,22 @@ SET time_zone = "+00:00";
 -- Banco de dados: `bancobat`
 --
 
-CREATE DATABASE bancobat;
+CREATE DATABASE IF NOT EXISTS bancobat;
 USE bancobat;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `questao`
+--
+
+CREATE TABLE `questao` (
+  `id` int(11) NOT NULL,
+  `enunciado` text NOT NULL,
+  `resposta` text NOT NULL, -- Separador de respostas de multipla escolha -> '\'
+  `tipo_questao` varchar(2) NOT NULL, -- AL -> Alternativa, MA -> Multiplas alternativas, TX -> Dissertativa
+  `valor_questao` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -40,8 +54,21 @@ CREATE TABLE `usuario` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Despejando dados para a tabela `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `nome_completo`, `data_nascimento`, `email`, `senha`, `tipo_usuario`) VALUES
+(1, 'teste', '0000-00-00', 'teste@email.com', 'teste123', 1);
+
+--
 -- Índices para tabelas despejadas
 --
+
+--
+-- Índices de tabela `questao`
+--
+ALTER TABLE `questao`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Índices de tabela `usuario`
@@ -54,10 +81,16 @@ ALTER TABLE `usuario`
 --
 
 --
+-- AUTO_INCREMENT de tabela `questao`
+--
+ALTER TABLE `questao`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
