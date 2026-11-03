@@ -3,8 +3,7 @@
     session_start();
 
     // Limpa todas as variáveis de sessão
-    $_SESSION = array();
-
+    session_unset();
     session_destroy();
 
     header("Location: index.php");

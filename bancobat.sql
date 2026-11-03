@@ -46,7 +46,7 @@ CREATE TABLE `questao` (
 
 CREATE TABLE `usuario` (
   `id` int(11) NOT NULL,
-  `nome_completo` varchar(200) NOT NULL,
+  `nome` varchar(200) NOT NULL,
   `data_nascimento` date DEFAULT NULL,
   `email` varchar(100) NOT NULL,
   `senha` varchar(100) NOT NULL,
@@ -57,7 +57,7 @@ CREATE TABLE `usuario` (
 -- Despejando dados para a tabela `usuario`
 --
 
-INSERT INTO `usuario` (`id`, `nome_completo`, `data_nascimento`, `email`, `senha`, `tipo_usuario`) VALUES
+INSERT INTO `usuario` (`id`, `nome`, `data_nascimento`, `email`, `senha`, `tipo_usuario`) VALUES
 (1, 'teste', '0000-00-00', 'teste@email.com', 'teste123', 1);
 
 --

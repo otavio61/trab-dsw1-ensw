@@ -51,30 +51,32 @@
         <title>Login | BAT Banco de questões</title>
     </head>
 
-    <body class="container">
-        <form action="logon.php" method="POST">
-            <div class="mb-3">
-                <label for="emailId" class="form-label">Endereço de email</label>
-                <input type="email" class="form-control" id="emailId" name="email" aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text">Não compartilhamos seu email com ninguém.</div>
-            </div>
+    <body>
+        <div class="container align-content-stretch">
+            <h1>Banco BAT</h1>
+            <form action="logon.php" method="POST">
+                <div class="mb-3">
+                    <label for="emailId" class="form-label">Endereço de email</label>
+                    <input type="email" class="form-control" id="emailId" name="email" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text">Não compartilhamos seu email com ninguém.</div>
+                </div>
 
-            <div class="mb-3">
-                <label for="senhaId" class="form-label">Senha</label>
-                <input type="password" class="form-control" name="senha" id="senhaId">
-            </div>
+                <div class="mb-3">
+                    <label for="senhaId" class="form-label">Senha</label>
+                    <input type="password" class="form-control" name="senha" id="senhaId">
+                </div>
 
-            <!-- <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div> -->
-            <button type="submit" class="btn btn-primary">Acessar</button>
+                <!-- <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                </div> -->
+                <button type="submit" class="btn btn-primary">Acessar</button>
 
-            <p class="text-start"><a href="#" class="text-decoration-none">Primeiro Acesso?</a></p>
+                <p class="text-start"><a href="#" class="text-decoration-none">Primeiro Acesso?</a></p>
 
-        </form>
-
-         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+            </form>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     </body>
 
 </html>
