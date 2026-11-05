@@ -27,7 +27,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        Seja muito bem-vindo, <strong><?php echo $_SESSION['usuario_email']; ?></strong>! É ótimo tê-lo por aqui.
+                        Seja muito bem-vindo, <strong><?= $_SESSION['usuario']->nome ?></strong>! É ótimo tê-lo por aqui.
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-success" data-bs-dismiss="modal">Começar</button>

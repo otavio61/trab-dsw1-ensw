@@ -3,6 +3,7 @@
     session_start();
 
     include "config/conexao.php"; 
+    include "model/Usuario.php";
 
     $conn = Conexao::criarConexao();
 
@@ -18,11 +19,11 @@
     $statement->execute();
     
     if($usuario = $statement->fetchObject()){
+        $_SESSION['usuario'] = $usuario;
         $_SESSION['usuario_id'] = $usuario->id;
         $_SESSION['usuario_email'] = $usuario->email;
 
         $_SESSION['sucesso'] = true; // marca o sucesso pra verificar depois no inicio
-
         header('Location: inicio.php');
         exit;
     }else{
