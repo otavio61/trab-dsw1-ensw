@@ -78,12 +78,12 @@
                 <p>Papel do usuário</p>
 
                 <div class="form-field">
-                    <input class="radio" name="tipoUsuario" type="radio" id="radioLabel" />
+                    <input class="radio" name="tipoUsuario" type="radio" value="0" id="radioLabel" />
                     <label for="radioLabel">Estudante</label>
                 </div>
 
                 <div class="form-field">
-                    <input class="radio" name="tipoUsuario" type="radio" id="radioLabel2" />
+                    <input class="radio" name="tipoUsuario" type="radio" value="1" id="radioLabel2" />
                     <label for="radioLabel2">Professor</label>
                 </div>
 

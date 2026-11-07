@@ -3,7 +3,7 @@
     session_start();
 
     include "config/conexao.php"; 
-    include "model/Usuario.php";
+    // include "model/Usuario.php";
 
     $conn = Conexao::criarConexao();
 

@@ -1,10 +1,12 @@
 <?php
     class Usuario{
         
-        public $id;            
-        public $nome;          
-        public $dataNascimento;
-        public $email;         
-        public $senha;         
-        public $tipoUsuario;
+        public function __construct(
+            public int $id,   
+            public string $nome,
+            public string $dataNascimento,
+            public string $email,
+            public string $senha,
+            public int $tipoUsuario
+        ) {}
     }

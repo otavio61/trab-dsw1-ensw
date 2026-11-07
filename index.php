@@ -54,7 +54,7 @@
     <body>
         <div class="container align-content-stretch">
             <h1>Banco BAT</h1>
-            <form action="logon.php" method="POST">
+            <form action="./controller/LoginController.php" method="POST">
                 <div class="mb-3">
                     <label for="emailId" class="form-label">Endereço de email</label>
                     <input type="email" class="form-control" id="emailId" name="email" aria-describedby="emailHelp" required>
