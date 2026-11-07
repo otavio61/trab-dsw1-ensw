@@ -24,7 +24,7 @@
         $_SESSION['usuario_email'] = $usuario->email;
 
         $_SESSION['sucesso'] = true; // marca o sucesso pra verificar depois no inicio
-        header('Location: inicio.php');
+        header('Location: view/dashboard/');
         exit;
     }else{
         // Caso não achar no BD, ele manda de volta pro login
