@@ -10,10 +10,9 @@
     $resultado = $usuarioDAO->registrarUsuario($form);
 
     if($resultado){
-        header('Location: ../');
+        $_SESSION['sucesso_cadastro'] = 'Usuário cadastrado com sucesso!'; 
         header('Location: ../');
     }else{
-        $_SESSION['erros'] = "";
+        $_SESSION['erros'] = 'Erro ao registrar o usuário, tente novamente';
         header('Location: ../view/cadastro/');
     }
-

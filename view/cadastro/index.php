@@ -23,7 +23,7 @@
 
     <!-- SCRIPT PARA ABRIR O MODAL AUTOMATICAMENTE -->
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        document.addEventListener("DOMContentLoaded", function() {
             var meuModal = new bootstrap.Modal(document.getElementById('modalErro'));
             meuModal.show();
         });
@@ -93,7 +93,7 @@
 
             </form>
             
-            <p class="text-start"><a href="./../../" class="text-decoration-none theme-primary">Já possui uma conta?</a></p>
+            <p class="text-start"><a href="../../" class="text-decoration-none theme-primary">Já possui uma conta?</a></p>
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
