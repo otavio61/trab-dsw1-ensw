@@ -3,7 +3,8 @@
     session_start(); // O php precisa carregar a sessão salva na memória primeiro pra depois destruir
 
     // Limpa todas as variáveis de sessão
-    session_unset();
+    $_SESSION = [];
     session_destroy();
 
     header("Location: ../");
+    exit;

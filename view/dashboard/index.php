@@ -1,7 +1,7 @@
 <?php 
     session_start(); 
 
-    if(!isset($_SESSION['usuario_id'])) {
+    if(!isset($_SESSION['id'])) {
         header("Location: ../../"); 
         exit;
     }
@@ -16,7 +16,7 @@
     <title>Página Inicial | BAT Banco de questões</title>
 </head>
 <body class="container mt-4">
-    <a href="../../logoff.php" class="btn btn-danger">Sair</a>
+    <a href="../../controller/LogoffController.php" class="btn btn-danger">Sair</a>
 
     <?php if (isset($_SESSION['sucesso'])): ?>
         <div class="modal fade" id="modalBemVindo" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
@@ -27,7 +27,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        Seja muito bem-vindo, <strong><?= $_SESSION['usuario']->nome ?></strong>! É ótimo tê-lo por aqui.
+                        Seja muito bem-vindo, <strong><?= $_SESSION['nome'] ?></strong>! É ótimo tê-lo por aqui.
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-success" data-bs-dismiss="modal">Começar</button>
