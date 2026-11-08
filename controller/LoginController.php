@@ -17,7 +17,7 @@
         exit;
     }else{
         $_SESSION['erros'] = 'Email ou senha incorretos'; // Caso não achar no BD, ele manda de volta pro login
-        header('Location: index.php');
+        header('Location: ../');
         exit;
     }
 
