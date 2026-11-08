@@ -11,5 +11,9 @@
 
     if($resultado){
         header('Location: ../');
+        header('Location: ../');
+    }else{
+        $_SESSION['erros'] = "";
+        header('Location: ../view/cadastro/');
     }
 
