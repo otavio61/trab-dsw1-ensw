@@ -21,11 +21,12 @@
         }
 
         public function registrarUsuario(array $form): bool {
+            $hashSenha = password_hash($form['senha'], PASSWORD_DEFAULT);
+            
             $statement = $this->conexao->prepare('INSERT INTO usuario (nome, data_nascimento, email, senha, tipo_usuario) VALUES (:nome, :data_nascimento, :email, :senha, :tipo_usuario)');
             $statement->bindParam(':nome', $form['nome']);
             $statement->bindParam(':data_nascimento', $form['dataNascimento']);
             $statement->bindParam(':email', $form['email']);
-            $hashSenha = password_hash($form['senha'], PASSWORD_DEFAULT);
             $statement->bindParam(':senha', $hashSenha); 
             $statement->bindParam(':tipo_usuario', $form['tipoUsuario']);
             $statement->execute();
