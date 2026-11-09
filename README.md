@@ -23,4 +23,4 @@ repositório na pasta 'htdocs', caso seja utilizado o XAMPP.
 
 Em progresso (Fase inicial)
 
-Data da ultima atualização: 08 /11/2026
+Data da ultima atualização: 08/11/2026
