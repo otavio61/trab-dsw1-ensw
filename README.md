@@ -1,4 +1,4 @@
-# Projeto AMO (Arcade Machine Object)
+# Projeto BAT (Banco de questões)
 
 ## Sobre
 
