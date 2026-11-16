@@ -23,14 +23,17 @@
         <?php 
             $questoes = new QuestoesDAO();
             $resultado = $questoes->obterQuestoes();
-
-            foreach($resultado as $row){
-                print "<p>ID: {$row['id']}";
-                print "<p>Enunciado: {$row['enunciado']}";
-                print "<p>Descricao: {$row['descricao']}";
-                print "<p>Resposta correta: {$row['resposta_correta']}";
-            }
         ?>
+
+        <ul class="list-group">
+            <?php foreach($resultado as $linha): ?>
+                <li class='list-group-item'>ID: <?=$linha['id']?></li>
+                <li class='list-group-item'>Enunciado: <?=$linha['enunciado']?></li>
+                <li class='list-group-item'>Descricao: <?=$linha['descricao']?></li>
+                <li class='list-group-item'>Resposta correta: <?=$linha['resposta_correta'] ? 'Sim' : 'Não'?></li>
+           <?php endforeach ?>
+        </ul>
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     </body>
 </html>
