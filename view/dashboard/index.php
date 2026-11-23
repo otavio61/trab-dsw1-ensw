@@ -45,7 +45,7 @@
             </div>
         </nav>
 
-        <a href="../../controller/LogoffController.php" class="btn btn-danger">Sair</a>
+        <a href="../../controller/UsuarioController.php?operacao=sair" class="btn btn-danger">Sair</a>
 
         <?php if (isset($_SESSION['sucesso'])): ?>
             <div class="modal fade" id="modalBemVindo" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">

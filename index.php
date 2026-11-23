@@ -21,7 +21,7 @@
         <div class="container align-content-stretch mt-3">
             <h1>Banco BAT</h1>
 
-            <form action="controller/LoginController.php" method="POST">
+            <form action="controller/UsuarioController.php" method="POST">
                 <div class="form-field mb-3">
                     <label for="emailId" class="form-label">Endereço de email</label>
                     <input type="email" class="form-control" id="emailId" name="email" aria-describedby="emailHelp" required>
@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="mb-3 mt-3">
-                    <button type="submit" class="btn btn-primary">Acessar</button>
+                    <button type="submit" name="operacao" class="btn btn-primary">Acessar</button>
                 </div>
 
             </form>

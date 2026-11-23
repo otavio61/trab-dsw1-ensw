@@ -1,40 +1,4 @@
-<?php
-    session_start();
-
-    if (isset($_SESSION['erros'])):
-?>
-
-    <div class="modal fade" id="modalErro" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-danger text-white">
-                    <h5 class="modal-title" id="modalLabel">Erro</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <strong><?php echo $_SESSION['erros']; ?></strong>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-sucess" data-bs-dismiss="modal">Fechar</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- SCRIPT PARA ABRIR O MODAL AUTOMATICAMENTE -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var meuModal = new bootstrap.Modal(document.getElementById('modalErro'));
-            meuModal.show();
-        });
-    </script>
-
-<?php
-    // Limpa a flag para o modal não abrir de novo se o usuário atualizar a página (F5)
-    unset($_SESSION['erros']);
-
-    endif;
-?>
+<?php session_start(); ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -51,7 +15,7 @@
         <div class="container align-content-stretch mt-3">
             <h1>Novo usuário</h1>
 
-            <form action="../../controller/CadastroController.php" method="POST">
+            <form action="../../controller/UsuarioController.php" method="POST">
 
                 <div class="form-field mb-3">
                     <label for="nomeId" class="form-label">Nome completo</label>
@@ -88,13 +52,46 @@
                 </div>
 
                 <div class="mb-3 mt-3">
-                    <button type="submit" class="btn btn-primary">Registrar</button>
+                    <button type="submit" name="operacao" class="btn btn-primary">Registrar</button>
                 </div>
 
             </form>
             
             <p class="text-start"><a href="../../" class="text-decoration-none theme-primary">Já possui uma conta?</a></p>
         </div>
+
+        <?php if (isset($_SESSION['erros'])): ?>
+
+            <div class="modal fade" id="modalErro" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-danger text-white">
+                            <h5 class="modal-title" id="modalLabel">Erro</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <strong><?php echo $_SESSION['erros']; ?></strong>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-sucess" data-bs-dismiss="modal">Fechar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SCRIPT PARA ABRIR O MODAL AUTOMATICAMENTE -->
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    var meuModal = new bootstrap.Modal(document.getElementById('modalErro'));
+                    meuModal.show();
+                });
+            </script>
+
+        <?php
+            // Limpa a flag para o modal não abrir de novo se o usuário atualizar a página (F5)
+            unset($_SESSION['erros']);
+            endif;
+        ?>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     </body>
