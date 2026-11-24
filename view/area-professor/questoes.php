@@ -6,8 +6,7 @@
         exit;
     }
 
-    require_once '../../model/QuestoesDAO.php';
-    require_once '../../config/Conexao.php'; // temporario
+    require_once '../../model/VO/Questao.php';
 ?>
 
 <!DOCTYPE html>
@@ -20,20 +19,25 @@
     </head>
 
     <body>
-        <?php 
-            $questoes = new QuestoesDAO();
-            $resultado = $questoes->obterQuestoes();
-        ?>
+        <h1>Questões presentes no banco</h1>
 
-        <ul class="list-group">
-            <?php foreach($resultado as $linha): ?>
-                <li class='list-group-item'>ID: <?=$linha['id']?></li>
-                <li class='list-group-item'>Enunciado: <?=$linha['enunciado']?></li>
-                <li class='list-group-item'>Descricao: <?=$linha['descricao']?></li>
-                <li class='list-group-item'>Resposta correta: <?=$linha['resposta_correta'] ? 'Sim' : 'Não'?></li>
-           <?php endforeach ?>
-        </ul>
-
+        <?php var_dump($_SESSION['questoes']); if(isset($_SESSION['questoes'])): ?>
+            
+            <ul class="list-group">
+                <?php foreach($_SESSION['questoes'] as $questao): ?>
+                    <li class='list-group-item'>ID: <?=$questao['id']?></li>
+                    <li class='list-group-item'>Enunciado: <?=$questao['enunciado']?></li>
+                    <li class='list-group-item'>Valor da questao: <?=$questao['valor_questao']?></li>
+                    <li class='list-group-item'>Materia: <?=$questao['materia']?></li>
+                    
+                    <?php foreach($questao['alternativas'] as $alternativa): ?>
+                        <li class='list-group-item'>Descricao: <?=$questao['descricao']?></li>
+                        <li class='list-group-item'>Resposta correta: <?=$questao['resposta_correta'] ? 'Sim' : 'Não'?></li>
+                    <?php endforeach; ?>
+                <?php endforeach; ?>
+            </ul>
+        
+        <?php endif; ?>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     </body>
 </html>

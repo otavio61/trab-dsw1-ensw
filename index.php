@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="mb-3 mt-3">
-                    <button type="submit" name="operacao" class="btn btn-primary">Acessar</button>
+                    <button type="submit" name="operacao" value="acessar" class="btn btn-primary">Acessar</button>
                 </div>
 
             </form>

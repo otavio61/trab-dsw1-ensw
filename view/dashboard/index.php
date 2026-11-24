@@ -34,8 +34,8 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Ações do professor</a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="../area-professor/questoes.php">Visualizar banco de questões</a></li>
-                                    <li><a class="dropdown-item" href="../area-professor/questionarios.php">Criar novo questionário</a></li>
+                                    <li><a class="dropdown-item" href="../../controller/ProfessorController.php?operacao=obter_questoes">Visualizar banco de questões</a></li>
+                                    <li><a class="dropdown-item" href="../../controller/ProfessorController.php">Criar novo questionário</a></li>
                                     <li><a class="dropdown-item" href="#">Something else here</a></li>
                                 </ul>
                             </li>

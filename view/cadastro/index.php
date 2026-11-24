@@ -42,7 +42,7 @@
                 <p>Papel do usuário</p>
 
                 <div class="form-field">
-                    <input class="radio" name="tipoUsuario" type="radio" value="0" id="radioLabel" />
+                    <input class="radio" name="tipoUsuario" type="radio" value="0" id="radioLabel" required/>
                     <label for="radioLabel">Estudante</label>
                 </div>
 
@@ -52,7 +52,7 @@
                 </div>
 
                 <div class="mb-3 mt-3">
-                    <button type="submit" name="operacao" class="btn btn-primary">Registrar</button>
+                    <button type="submit" name="operacao" value="registrar" class="btn btn-primary">Registrar</button>
                 </div>
 
             </form>

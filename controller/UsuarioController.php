@@ -6,7 +6,7 @@
 
     $usuarioController = new UsuarioController();
 
-    switch(strtolower($operacao)){
+    switch($operacao){
         case 'acessar':
             $usuarioController->login();
         break;
@@ -21,6 +21,7 @@
 
         default:
             header('Location: ../');
+            exit;
     }
 
     class UsuarioController{
