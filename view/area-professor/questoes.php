@@ -1,12 +1,12 @@
 <?php 
+    require_once '../../model/VO/Questao.php';
+
     session_start(); 
 
     if(!isset($_SESSION['id']) && $_SESSION['tipo_usuario'] != 1) {
         header("Location: ../../");
         exit;
     }
-
-    require_once '../../model/VO/Questao.php';
 ?>
 
 <!DOCTYPE html>
@@ -19,25 +19,35 @@
     </head>
 
     <body>
-        <h1>Questões presentes no banco</h1>
-
-        <?php var_dump($_SESSION['questoes']); if(isset($_SESSION['questoes'])): ?>
+        <div class="container">
+            <h1>Questões presentes no banco</h1>
             
-            <ul class="list-group">
-                <?php foreach($_SESSION['questoes'] as $questao): ?>
-                    <li class='list-group-item'>ID: <?=$questao['id']?></li>
-                    <li class='list-group-item'>Enunciado: <?=$questao['enunciado']?></li>
-                    <li class='list-group-item'>Valor da questao: <?=$questao['valor_questao']?></li>
-                    <li class='list-group-item'>Materia: <?=$questao['materia']?></li>
-                    
-                    <?php foreach($questao['alternativas'] as $alternativa): ?>
-                        <li class='list-group-item'>Descricao: <?=$questao['descricao']?></li>
-                        <li class='list-group-item'>Resposta correta: <?=$questao['resposta_correta'] ? 'Sim' : 'Não'?></li>
+            <div class="mb-3 mt-3">
+                <a href="../dashboard/"><button type="button" class="btn btn-primary">Voltar</button></a>
+                <a href="#"><button type="button" class="btn btn-primary">Nova questão</button></a>
+            </div>
+
+            <?php if(isset($_SESSION['questoes'])): ?>
+                
+                <ul class="list-group">
+                    <?php foreach($_SESSION['questoes'] as $questao): ?>
+                        <li class='list-group-item'>ID: <?=$questao->id?></li>
+                        <li class='list-group-item'>Enunciado: <?=$questao->enunciado?></li>
+                        <li class='list-group-item'>Valor da questao: <?=$questao->valor_questao?></li>
+                        <li class='list-group-item'>Materia: <?=$questao->materia?></li>
+                        <li class='list-group-item'>Alternativas:
+                            <ul class="list-group">
+                                <?php foreach($questao->alternativas as $alternativa): ?>
+                                    <li class='list-group-item'>Descricao: <?=$alternativa['descricao']?></li>
+                                    <li class='list-group-item'>Resposta correta: <?=$alternativa['resposta_correta'] ? 'Sim' : 'Não'?></li>
+                                <?php endforeach; ?>
+                            </ul>
+                        </li>
                     <?php endforeach; ?>
-                <?php endforeach; ?>
-            </ul>
-        
-        <?php endif; ?>
+                </ul>
+
+            <?php endif; ?>
+            </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
     </body>
 </html>

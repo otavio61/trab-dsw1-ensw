@@ -27,6 +27,7 @@
     class ProfessorController{
         public function obterQuestoes(){
             require_once '../model/QuestoesDAO.php';
+            require_once '../model/VO/Questao.php';
 
             session_start();
 
