@@ -1,15 +1,16 @@
 <?php
     require_once '../config/Conexao.php';
-    require_once 'VO/Questao.php';
 
-    class QuestoesDAO{
+    class QuestaoDAO{
         private PDO $conexao;
 
         public function __construct() {
             $this->conexao = Conexao::criarConexao();
         }
 
-        public function obterQuestoes(){
+        public function obterQuestoes(): array {
+            require_once 'VO/Questao.php';
+
             $statement = $this->conexao->prepare('SELECT q.id, q.enunciado, q.valor_questao, m.nome AS materia FROM questao q INNER JOIN materia m ON q.materia = m.id ORDER BY q.id DESC');
             $statement->execute();
 
@@ -34,5 +35,22 @@
             }
             
             return $arrayQuestoes;
+        }
+
+        public function adicionarQuestao($form): bool {
+            $statement = $this->conexao->prepare('INSERT INTO questao (enunciado, valor_questao, materia) VALUES (:enunciado, :valor_questao, :materia)');
+            $statement->bindParam(':enunciado', $form['enunciado']);
+            $statement->bindParam(':valor_questao', $form['valorQuestao']);
+            $statement->bindParam(':materia', $form['materia']);
+            $statement->execute();
+
+            return $statement->rowCount() != 0;
+        }
+
+        public function obterMaterias(): array {
+            $statement = $this->conexao->prepare('SELECT * FROM materia ORDER BY id DESC');
+            $statement->execute();
+
+            return $statement->fetchAll();
         }
     }

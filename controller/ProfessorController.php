@@ -11,12 +11,12 @@
             $professorController->obterQuestoes();
         break;
 
-        case 'sair':
-            $usuarioController->logoff();
+        case 'buscar_materias':
+            $professorController->obterMateriasQuestao();
         break;
 
-        case 'registrar':
-            $usuarioController->cadastrarUsuario();
+        case 'cadastrar_questao':
+            $professorController->adicionarQuestao();
         break;        
 
         default:
@@ -26,15 +26,42 @@
 
     class ProfessorController{
         public function obterQuestoes(){
-            require_once '../model/QuestoesDAO.php';
+            require_once '../model/QuestaoDAO.php';
             require_once '../model/VO/Questao.php';
 
             session_start();
 
-            $questoesDAO = new QuestoesDAO();
+            $questoesDAO = new QuestaoDAO();
 
             $_SESSION['questoes'] = $questoesDAO->obterQuestoes();
 
             header('Location: ../view/area-professor/questoes.php');
+        }
+
+        public function obterMateriasQuestao(){
+            require_once '../model/QuestaoDAO.php';
+            require_once '../model/VO/Questao.php';
+
+            session_start();
+
+            $questoesDAO = new QuestaoDAO();
+
+            $_SESSION['materias'] = $questoesDAO->obterMaterias();
+
+            header('Location: ../view/area-professor/nova-questao.php');
+        }
+
+        public function adicionarQuestao(){
+            require_once '../model/QuestaoDAO.php';
+
+            session_start();
+
+            $form = filter_input_array(INPUT_POST, FILTER_DEFAULT);
+
+            $questoesDAO = new QuestaoDAO();
+
+            $_SESSION['status_cadastro'] = $questoesDAO->adicionarQuestao($form);
+
+            ProfessorController::obterQuestoes();
         }
     }
