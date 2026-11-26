@@ -30,44 +30,39 @@
 
             <?php if(isset($_SESSION['questoes'])): $letras = range('A', 'Z'); ?>
                 
-                <!-- <ul class="list-group"> -->
                     <?php foreach($_SESSION['questoes'] as $indice => $questao): ?>
                 
                         <div class="card mb-3 shadow-sm">
-                            <!-- Cabeçalho -->
                             <div class="card-header d-flex justify-content-between align-items-center">
                                 <div>
-                                    <strong>Questão <?=$indice?></strong>
+                                    <strong>Questão <?=$indice + 1?></strong>
                                     <span class="text-muted small ms-2"><?=$questao->materia?> - ID: <?=$questao->id?></span>
                                 </div>
 
                                 <span class="badge text-bg-primary"><?=$questao->valor_questao?> ponto</span>
                             </div>
 
-                            <!-- Corpo -->
                             <div class="card-body">
                                 <h5 class="card-title mb-3"><?=$questao->enunciado?></h5>
 
-                                <p class="text-muted small fw-semibold mb-2">ALTERNATIVAS</p>
+                                <p class="text-muted small fw-semibold mb-2">Alternativas</p>
                                 
                                 <ul class="list-group">
                                     <?php foreach($questao->alternativas as $i => $alternativa): ?>
                                         <li class="list-group-item d-flex justify-content-between align-items-center">
-                                            <?=$letras[$i]?> <?=$alternativa['descricao']?>
+                                            <?=$letras[$i]?>) <?=$alternativa['descricao']?>
                                             <?=$alternativa['resposta_correta'] ? '<span class="text-success">✓</span>' : '<span class="text-danger">✕</span>'?>
                                         </li>
                                     <?php endforeach; ?>
                                 </ul>
                             </div>
 
-                            <!-- Rodapé -->
                             <div class="card-footer d-flex justify-content-end gap-2">
-                                <button class="btn btn-outline-primary btn-sm">Editar</button>
-                                <button class="btn btn-outline-danger btn-sm">Excluir</button>
+                                <a href="../../controller/ProfessorController.php?operacao=buscar_materias"><button class="btn btn-outline-primary btn-sm">Editar</button></a>
+                                <a href="#"><button class="btn btn-outline-danger btn-sm">Excluir</button></a>
                             </div>
                         </div>
                     <?php endforeach; ?>
-                <!-- </ul> -->
             <?php endif; ?>
         </div>
             
