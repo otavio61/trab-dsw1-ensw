@@ -3,7 +3,7 @@
 
     session_start(); 
 
-    if(!isset($_SESSION['id']) || $_SESSION['tipo_usuario'] != 1) {
+    if(!isset($_SESSION['id']) || $_SESSION['tipo_usuario'] != 1 || empty($_SESSION['questoes'])) {
         header("Location: ../../");
         exit;
     }
@@ -58,7 +58,7 @@
                             </div>
 
                             <div class="card-footer d-flex justify-content-end gap-2">
-                                <a href="../../controller/ProfessorController.php?operacao=buscar_materias"><button class="btn btn-outline-primary btn-sm">Editar</button></a>
+                                <a href="editar-questao.php?id=<?=$questao->id?>"><button class="btn btn-outline-primary btn-sm">Editar</button></a>
                                 <a href="#"><button class="btn btn-outline-danger btn-sm">Excluir</button></a>
                             </div>
                         </div>

@@ -1,10 +1,10 @@
 <?php 
     session_start(); 
 
-    // if(!isset($_SESSION['id']) || $_SESSION['tipo_usuario'] != 1 || empty($_SESSION['materias'])) {
-    //     header("Location: questoes.php");
-    //     exit;
-    // }
+    if(!isset($_SESSION['id']) || $_SESSION['tipo_usuario'] != 1 || empty($_SESSION['materias'])) {
+        header("Location: questoes.php");
+        exit;
+    }
 ?>
 
 <!DOCTYPE html>
