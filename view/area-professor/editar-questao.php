@@ -39,13 +39,42 @@
                 </div>
 
                 <div class="mb-3 mt-3">
+                    <input type="hidden" class="form-control" name="id" value="<?=$questao->id?>" id="questaoId" disabled required>
                     <button type="submit" name="operacao" value="editar_questao" class="btn btn-primary">Editar</button>
+                    <a href="questoes.php"><button type="button" class="btn btn-secondary">Voltar</button></a>
                 </div>
             </form>
 
-            <div class="mb-3 mt-3">
-                <a href="questoes.php"><button type="button" class="btn btn-secondary">Voltar</button></a>
-            </div>
+            <hr>
+
+            <?php foreach($questao->alternativas as $alternativa): ?>
+                <form action="../../controller/ProfessorController.php" method="POST">
+                    <div class="form-field mb-3">
+                        <label for="descricaoId" class="form-label">Descrição:</label>
+                        <input type="text" class="form-control" name="descricao" value="<?=$alternativa['descricao']?>" id="descricaoId" required>
+                    </div>
+
+                    <p>Resposta correta:</p>
+
+                    <div class="form-field">
+                        <input class="radio" name="tipoUsuario" type="radio" value="1" id="radioLabel" <?=$alternativa['resposta_correta'] == 1 ?: 'checked'?> required/>
+                        <label for="radioLabel">Sim</label>
+                    </div>
+
+                    <div class="form-field">
+                        <input class="radio" name="tipoUsuario" type="radio" value="0" <?=$alternativa['resposta_correta'] == 0 ?: 'checked'?> id="radioLabel2" />
+                        <label for="radioLabel2">Não</label>
+                    </div>
+
+                    <div class="mb-3 mt-3">
+                        <input type="hidden" class="form-control" name="id" value="<?=$alternativa['id']?>" id="alternativaId" disabled required>
+                        <button type="submit" name="operacao" value="editar_alternativa_questao" class="btn btn-primary">Editar</button>
+                        <a href="#"><button class="btn btn-outline-danger">Excluir</button></a>
+                    </div>
+                </form>
+            <?php endforeach; ?>
+
+
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
